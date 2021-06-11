@@ -1,4 +1,17 @@
 # Starter pipeline
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'Azure subscription 1(1)(3f2ed5df-1cb6-4cca-abed-e978c572c9c3)'
+    subscriptionId: '3f2ed5df-1cb6-4cca-abed-e978c572c9c3'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'it-rg-dev-westus-001'
+    location: 'West US'
+    templateLocation: 'URL of the file'
+    csmFileLink: 'https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-simple-windows/azuredeploy.json'
+    csmParametersFileLink: 'https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-simple-windows/azuredeploy.parameters.json'
+    deploymentMode: 'Incremental'
+    deploymentName: 'AzureArmPipeline-test1'
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
